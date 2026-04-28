@@ -264,3 +264,43 @@
 @media (max-width: 900px) {
   .contactGrid { grid-template-columns: 1fr; }
 }
+
+/* ── PAIN POINTS ── */
+.painGrid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+}
+.painCard { padding: 28px; }
+.painIcon { font-size: 36px; margin-bottom: 12px; }
+.painTitle { font-size: 18px; margin-bottom: 10px; color: var(--text-primary); font-weight: 700; }
+.painDesc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+@media (max-width: 700px) {
+  .painGrid { grid-template-columns: 1fr; }
+}
+
+/* ── WORKS GRID ── */
+.worksGrid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.workCard {
+  padding: 24px;
+  text-decoration: none; color: inherit;
+  display: block;
+  transition: all 0.25s ease;
+}
+.workCard:hover { transform: translateY(-4px); }
+.workCardIcon { font-size: 32px; margin-bottom: 12px; }
+.workCardName { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.workCardUrl { font-size: 12px; color: var(--primary); margin-bottom: 10px; font-family: monospace; }
+.workCardDesc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px; }
+.workCardTags { display: flex; gap: 8px; flex-wrap: wrap; }
+.workTag {
+  font-size: 11px; padding: 3px 10px;
+  background: rgba(91,79,207,0.08); color: var(--primary);
+  border-radius: 100px; border: 1px solid rgba(91,79,207,0.15);
+}
+@media (max-width: 900px) {
+  .worksGrid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .worksGrid { grid-template-columns: 1fr; }
+}
