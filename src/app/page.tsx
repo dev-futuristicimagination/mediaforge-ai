@@ -1,0 +1,304 @@
+import Link from 'next/link';
+import styles from './page.module.css';
+
+export default function LandingPage() {
+  return (
+    <div className={styles.wrapper}>
+      {/* ── NAV ── */}
+      <nav className={styles.nav}>
+        <div className={styles.navInner}>
+          <div className={styles.logo}>
+            <span className={styles.logoIcon}>⚡</span>
+            <span className={styles.logoText}>MediaForge <span className="gradient-text">AI</span></span>
+          </div>
+          <div className={styles.navLinks}>
+            <a href="#features">機能</a>
+            <a href="#howitworks">使い方</a>
+            <a href="#pricing">料金</a>
+          </div>
+          <div className={styles.navCta}>
+            <a href="#features" className="btn-ghost" style={{fontSize:'14px',padding:'9px 18px'}}>サービス内容</a>
+            <a href="#contact" className="btn-primary" style={{fontSize:'14px',padding:'9px 18px'}}>無料相談 →</a>
+          </div>
+        </div>
+      </nav>
+
+      {/* ── HERO ── */}
+      <section className={styles.hero}>
+        <div className={styles.heroBg} />
+        <div className={styles.heroOrb1} />
+        <div className={styles.heroOrb2} />
+        <div className={styles.heroContent}>
+          <div className="badge" style={{marginBottom:'24px'}}>
+            <span>✨</span> 18サイト・9言語稼働中 · 年間6,570記事を完全自動生成
+          </div>
+          <h1 className={styles.heroTitle}>
+            AIがあなたの<br />
+            <span className="gradient-text">メディアを自動運営する</span>
+          </h1>
+          <p className={styles.heroSub}>
+            記事生成・SEO最適化・Webへの自動公開まで全自動。<br />
+            ライター費用を削減し、コンテンツ量を10倍に。
+          </p>
+          <div className={styles.heroCta}>
+            <a href="#contact" className="btn-primary" style={{fontSize:'16px',padding:'16px 36px'}}>
+              無料相談を予約する →
+            </a>
+            <a href="#howitworks" className="btn-ghost" style={{fontSize:'16px',padding:'16px 36px'}}>
+              仕組みを見る
+            </a>
+          </div>
+          <p className={styles.heroNote}>30分無料Zoom相談 · 見積もり無料 · 秘密保持OK</p>
+        </div>
+
+        {/* ダッシュボードプレビュー */}
+        <div className={styles.heroPreview}>
+          <div className={styles.previewWindow}>
+            <div className={styles.previewBar}>
+              <span style={{background:'#ef4444'}} />
+              <span style={{background:'#f59e0b'}} />
+              <span style={{background:'#10b981'}} />
+            </div>
+            <div className={styles.previewContent}>
+              <div className={styles.previewSidebar}>
+                {['📊 Overview','🌐 サイト一覧','📝 記事管理','⚙️ 設定'].map((item, i) => (
+                  <div key={i} className={`${styles.previewSideItem} ${i===0 ? styles.active : ''}`}>{item}</div>
+                ))}
+              </div>
+              <div className={styles.previewMain}>
+                <div className={styles.previewStats}>
+                  {[
+                    {label:'今月の生成記事', val:'546', icon:'📝'},
+                    {label:'総サイト数', val:'18', icon:'🌐'},
+                    {label:'対応言語数', val:'9言語', icon:'🌏'},
+                  ].map((s, i) => (
+                    <div key={i} className={styles.previewStatCard}>
+                      <span style={{fontSize:'20px'}}>{s.icon}</span>
+                      <div>
+                        <div style={{fontSize:'20px',fontWeight:700,color:'#f8fafc'}}>{s.val}</div>
+                        <div style={{fontSize:'11px',color:'#94a3b8'}}>{s.label}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div style={{fontSize:'12px',color:'#94a3b8',marginBottom:'8px',fontWeight:600}}>最近の生成記事</div>
+                {['eMAXIS Slim 全世界株式 vs S&P500 完全比較','固定費削減で年50万節約する方法','新NISA 2026年最新版ガイド'].map((title, i) => (
+                  <div key={i} className={styles.previewArticleRow}>
+                    <span className={styles.previewDot} />
+                    <span style={{fontSize:'11px',color:'#e2e8f0',flex:1,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{title}</span>
+                    <span className={styles.previewBadge}>公開中</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SOCIAL PROOF ── */}
+      <section className={styles.proof}>
+        <div className={styles.proofInner}>
+          {[
+            {val:'18+', label:'稼働サイト数'},
+            {val:'6,570', label:'年間自動生成記事数'},
+            {val:'9言語', label:'多言語対応'},
+            {val:'¥0', label:'ライター費用'},
+            {val:'24h', label:'365日自動稼働'},
+          ].map((s, i) => (
+            <div key={i} className={styles.proofItem}>
+              <div className={styles.proofVal}>{s.val}</div>
+              <div className={styles.proofLabel}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── FEATURES ── */}
+      <section id="features" className={styles.section}>
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionHeader}>
+            <div className="badge">機能</div>
+            <h2 className={styles.sectionTitle}>メディア運営に必要なすべてが揃う</h2>
+            <p className={styles.sectionSub}>記事生成から収益化まで、ワンプラットフォームで完結</p>
+          </div>
+          <div className={styles.featuresGrid}>
+            {[
+              {icon:'🤖', title:'AI記事自動生成', desc:'Gemini 2.5を使用。カテゴリ・トーン・SEOキーワードを設定するだけで高品質な記事を自動生成。薬機法・著作権への配慮も組み込み済み。'},
+              {icon:'🔍', title:'SEO完全自動化', desc:'メタデータ・OGP・sitemap.xml・Google Ping送信まで自動。生成後すぐにインデックスされる設計。'},
+              {icon:'🚀', title:'Vercel自動デプロイ', desc:'記事生成のたびに自動でデプロイ。URLが即日開通。SSG + ISRで高速表示を実現。'},
+              {icon:'💰', title:'アフィリエイト自動挿入', desc:'A8.net・Amazon・楽天アフィリエイトタグを記事内容に応じて自動挿入。収益化まで全自動。'},
+              {icon:'📊', title:'GSC・GA4連携', desc:'Google Search ConsoleとGA4のデータを毎週Discord・Slackへ自動レポート。データドリブンなSEO改善。'},
+              {icon:'🔄', title:'記事自動リライト', desc:'検索順位11〜30位の記事をAIが自動検出し、リライト提案・実行まで自動化。'},
+            ].map((f, i) => (
+              <div key={i} className={`glass-card ${styles.featureCard}`}>
+                <div className={styles.featureIcon}>{f.icon}</div>
+                <h3 className={styles.featureTitle}>{f.title}</h3>
+                <p className={styles.featureDesc}>{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOW IT WORKS ── */}
+      <section id="howitworks" className={`${styles.section} ${styles.sectionAlt}`}>
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionHeader}>
+            <div className="badge">使い方</div>
+            <h2 className={styles.sectionTitle}>たった3ステップで稼働開始</h2>
+          </div>
+          <div className={styles.stepsGrid}>
+            {[
+              {step:'01', icon:'⚙️', title:'サイトを設定する', desc:'メディアテーマ・カテゴリ・ターゲット読者・アフィリエイト設定を入力。5分で完了。'},
+              {step:'02', icon:'🤖', title:'AIが記事を生成する', desc:'毎日または週次スケジュールで自動生成。SEO最適化・フロントマター・画像サムネイルまで自動。'},
+              {step:'03', icon:'🌐', title:'自動公開・収益化', desc:'GitHubへコミット → Vercelへデプロイ → Google Ping送信まで全自動。あとは順位が上がるのを待つだけ。'},
+            ].map((s, i) => (
+              <div key={i} className={`glass-card ${styles.stepCard}`}>
+                <div className={styles.stepNumber}>{s.step}</div>
+                <div className={styles.stepIcon}>{s.icon}</div>
+                <h3 className={styles.stepTitle}>{s.title}</h3>
+                <p className={styles.stepDesc}>{s.desc}</p>
+                {i < 2 && <div className={styles.stepArrow}>→</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRICING ── */}
+      <section id="pricing" className={styles.section}>
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionHeader}>
+            <div className="badge">料金プラン</div>
+            <h2 className={styles.sectionTitle}>シンプルな月額固定料金</h2>
+            <p className={styles.sectionSub}>ライター1名分の費用で、月150本以上の記事を自動生成。まずは無料相談から。</p>
+          </div>
+          <div className={styles.pricingGrid}>
+            {[
+              {
+                name:'Starter', price:'¥50,000', period:'/月',
+                desc:'小規模メディア・個人事業主向け',
+                features:['記事生成 50本/月','1サイト','SEO自動化','アフィリエイト挿入','Discord通知レポート'],
+                cta:'無料相談する', highlighted: false,
+                href: '#contact',
+              },
+              {
+                name:'Growth', price:'¥150,000', period:'/月',
+                desc:'メディア企業・EC企業向け（最人気）',
+                features:['記事生成 200本/月','5サイト・多言語対応','全機能 + GSC連携','自動リライト','専任サポート'],
+                cta:'無料相談する', highlighted: true,
+                href: '#contact',
+              },
+              {
+                name:'Enterprise', price:'要相談', period:'',
+                desc:'メディア会社・代理店・大企業向け',
+                features:['記事生成 無制限','サイト数 無制限','全機能＋カスタム開発','専用Slack連携','SLA・NDA対応'],
+                cta:'お問い合わせ', highlighted: false,
+                href: '#contact',
+              },
+            ].map((plan, i) => (
+              <div key={i} className={`glass-card ${styles.pricingCard} ${plan.highlighted ? styles.pricingHighlighted : ''}`}>
+                {plan.highlighted && <div className={styles.popularBadge}>最人気</div>}
+                <div className={styles.planName}>{plan.name}</div>
+                <div className={styles.planPrice}>
+                  {plan.price}<span className={styles.planPeriod}>{plan.period}</span>
+                </div>
+                <p className={styles.planDesc}>{plan.desc}</p>
+                <ul className={styles.planFeatures}>
+                  {plan.features.map((f, j) => (
+                    <li key={j}><span className={styles.checkIcon}>✓</span>{f}</li>
+                  ))}
+                </ul>
+                <a href={plan.href} className={plan.highlighted ? 'btn-primary' : 'btn-ghost'} style={{width:'100%',justifyContent:'center',display:'flex'}}>
+                  {plan.cta}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CONTACT ── */}
+      <section id="contact" className={`${styles.section} ${styles.sectionAlt}`}>
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionHeader}>
+            <div className="badge">無料相談</div>
+            <h2 className={styles.sectionTitle}>まず30分、話を聞かせてください</h2>
+            <p className={styles.sectionSub}>貴社のメディア状況をヒアリングし、最適な自動化プランをご提案します。費用は一切かかりません。</p>
+          </div>
+          <div className={styles.contactGrid}>
+            <div className={`glass-card ${styles.contactCard}`}>
+              <div className={styles.contactIcon}>📞</div>
+              <h3 className={styles.contactTitle}>無料Zoom相談（30分）</h3>
+              <p className={styles.contactDesc}>現状のメディア課題・目標をお聞きし、自動化の可能性と費用感をその場でご回答します。</p>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSf_mediaforge_contact/viewform"
+                className="btn-primary"
+                style={{marginTop:'20px',fontSize:'15px',padding:'14px 32px'}}
+                target="_blank" rel="noopener noreferrer"
+              >
+                相談を申し込む →
+              </a>
+            </div>
+            <div className={`glass-card ${styles.contactCard}`}>
+              <div className={styles.contactIcon}>✉️</div>
+              <h3 className={styles.contactTitle}>メールで問い合わせ</h3>
+              <p className={styles.contactDesc}>詳細な要件・見積もり依頼・NDA対応など、まずはメールでお気軽にどうぞ。通常24時間以内に返信します。</p>
+              <a
+                href="mailto:ta-sato@futuristicimagination.co.jp?subject=MediaForge AI 相談&body=【会社名】%0A【担当者名】%0A【ご相談内容】%0A"
+                className="btn-ghost"
+                style={{marginTop:'20px',fontSize:'15px',padding:'14px 32px'}}
+              >
+                メールを送る
+              </a>
+            </div>
+            <div className={`glass-card ${styles.contactCard}`}>
+              <div className={styles.contactIcon}>🌐</div>
+              <h3 className={styles.contactTitle}>会社サイトを見る</h3>
+              <p className={styles.contactDesc}>Futuristic Imagination LLCの実績・サービス詳細・会社概要はこちらからご確認いただけます。</p>
+              <a
+                href="https://www.futuristicimagination.co.jp"
+                className="btn-ghost"
+                style={{marginTop:'20px',fontSize:'15px',padding:'14px 32px'}}
+                target="_blank" rel="noopener noreferrer"
+              >
+                FI公式サイトへ →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FINAL CTA ── */}
+      <section className={styles.finalCta}>
+        <div className={styles.finalCtaOrb} />
+        <div className={styles.finalCtaContent}>
+          <h2 className={styles.finalCtaTitle}>競合が気づく前に、始めよう</h2>
+          <p className={styles.finalCtaSub}>毎日18サイト・100記事を自動生成する同じシステムを、あなたの会社に構築します。</p>
+          <a href="#contact" className="btn-primary" style={{fontSize:'16px',padding:'16px 40px',marginTop:'8px'}}>
+            30分無料相談を予約する →
+          </a>
+          <p style={{marginTop:'16px',color:'var(--text-muted)',fontSize:'14px'}}>費用・見積もり無料 · 秘密保持対応 · 最短2週間で稼働</p>
+        </div>
+      </section>
+
+      {/* ── FOOTER ── */}
+      <footer className={styles.footer}>
+        <div className={styles.footerInner}>
+          <div className={styles.footerLogo}>
+            <span>⚡</span>
+            <span>MediaForge <span className="gradient-text">AI</span></span>
+          </div>
+          <p style={{color:'var(--text-muted)',fontSize:'13px'}}>
+            © 2026 Futuristic Imagination LLC. All rights reserved.
+          </p>
+          <div className={styles.footerLinks}>
+            <a href="#">利用規約</a>
+            <a href="#">プライバシーポリシー</a>
+            <a href="#">お問い合わせ</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
