@@ -232,7 +232,7 @@ export default function LandingPage() {
               <h3 className={styles.contactTitle}>無料Zoom相談（30分）</h3>
               <p className={styles.contactDesc}>現状のメディア課題・目標をお聞きし、自動化の可能性と費用感をその場でご回答します。</p>
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSf_mediaforge_contact/viewform"
+                href="https://forms.gle/Vw1PBQefXRLvTw459"
                 className="btn-primary"
                 style={{marginTop:'20px',fontSize:'15px',padding:'14px 32px'}}
                 target="_blank" rel="noopener noreferrer"
