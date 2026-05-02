@@ -3,7 +3,6 @@ import styles from './page.module.css';
 
 const CONTACT_FORM = 'https://forms.gle/Vw1PBQefXRLvTw459';
 
-
 // ネットワーク実績データ（月次自動更新）
 async function getNetworkStats() {
   try {
@@ -320,14 +319,36 @@ export default async function LandingPage() {
             <p className={styles.sectionSub}>貴社のメディア状況をヒアリングし、最適な自動化プランをご提案します。費用は一切かかりません。</p>
           </div>
           <div className={styles.contactGrid}>
-            <div className={`glass-card ${styles.contactCard}`}>
-              <div className={styles.contactIcon}>📞</div>
-              <h3 className={styles.contactTitle}>無料Zoom相談（30分）</h3>
-              <p className={styles.contactDesc}>現状のメディア課題・目標をお聞きし、自動化の可能性と費用感をその場でご回答します。</p>
-              <a href={CONTACT_FORM} className="btn-primary" style={{marginTop:'20px',fontSize:'15px',padding:'14px 32px'}} target="_blank" rel="noopener noreferrer">
-                相談を申し込む →
-              </a>
-            </div>
+            {/* ── インラインリードキャプチャフォーム（#10 lead-capture API接続 2026-05-03）── */}
+          <div className={`glass-card ${styles.contactCard}`} style={{gridColumn:'1/-1'}}>
+            <div className={styles.contactIcon}>📨</div>
+            <h3 className={styles.contactTitle}>フォームで問い合わせ（担当者が直接返信）</h3>
+            <p className={styles.contactDesc}>送信後すぐに弊社Discordに通知が届き、24時間以内に返信します。</p>
+            <form
+              id="lead-capture-form"
+              style={{marginTop:'20px', display:'flex', flexDirection:'column', gap:'12px'}}
+              onSubmit={undefined}
+              action="/api/lead-capture"
+              method="POST"
+            >
+              <div style={{display:'flex', gap:'12px', flexWrap:'wrap'}}>
+                <input id="lead-name" name="name" type="text" required placeholder="お名前 *" style={{flex:1, minWidth:'160px', padding:'10px 14px', borderRadius:'8px', border:'1px solid rgba(91,79,207,0.3)', background:'rgba(255,255,255,0.05)', color:'var(--text-primary)', fontSize:'14px'}} />
+                <input id="lead-email" name="email" type="email" required placeholder="メールアドレス *" style={{flex:1, minWidth:'160px', padding:'10px 14px', borderRadius:'8px', border:'1px solid rgba(91,79,207,0.3)', background:'rgba(255,255,255,0.05)', color:'var(--text-primary)', fontSize:'14px'}} />
+              </div>
+              <input id="lead-company" name="company" type="text" placeholder="会社名（任意）" style={{padding:'10px 14px', borderRadius:'8px', border:'1px solid rgba(91,79,207,0.3)', background:'rgba(255,255,255,0.05)', color:'var(--text-primary)', fontSize:'14px'}} />
+              <select id="lead-plan" name="plan" style={{padding:'10px 14px', borderRadius:'8px', border:'1px solid rgba(91,79,207,0.3)', background:'rgba(20,20,40,0.9)', color:'var(--text-primary)', fontSize:'14px'}}>
+                <option value="">希望プラン（任意）</option>
+                <option value="Starter">Starter — ¥50,000/月</option>
+                <option value="Growth">Growth — ¥150,000/月（最人気）</option>
+                <option value="Enterprise">Enterprise — 要相談</option>
+              </select>
+              <textarea id="lead-message" name="message" rows={3} placeholder="ご相談内容（任意）" style={{padding:'10px 14px', borderRadius:'8px', border:'1px solid rgba(91,79,207,0.3)', background:'rgba(255,255,255,0.05)', color:'var(--text-primary)', fontSize:'14px', resize:'vertical'}} />
+              <button id="lead-submit" type="submit" className="btn-primary" style={{fontSize:'15px', padding:'13px 28px', cursor:'pointer', border:'none'}}>
+                送信する →
+              </button>
+            </form>
+          </div>
+
             <div className={`glass-card ${styles.contactCard}`}>
               <div className={styles.contactIcon}>✉️</div>
               <h3 className={styles.contactTitle}>メールで問い合わせ</h3>
