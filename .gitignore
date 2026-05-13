@@ -3,3 +3,14 @@ node_modules/
 .vercel/
 *.local
 .env.local
+
+# ===== セキュリティ: 環境変数ファイル（絶対にコミットしない）=====
+.env
+.env.*
+.env.local
+.env.production
+.env.development
+.env.staging
+.env.test
+!.env.example
+# ================================================================
